@@ -98,7 +98,7 @@ resource "aws_key_pair" "ssh-key-nginx-server" {
   ## RESOURCES ASSOCIATE TAG ( asociar etiquetas mejores practicas)
   tags = {
     Name        = "${var.server_name}"
-    Environment = "dev"
+    Environment = "${var.environment}"
     Owner       = "Rodrigo"
     Team        = "DevOps"
     Projects    = "Ecommerce"
@@ -109,11 +109,11 @@ resource "aws_key_pair" "ssh-key-nginx-server" {
 
 ### RESOURCE SECURITY GROUP
 resource "aws_security_group" "nginx-server-sg" {
-  name        = "nginx-server-sg"
+  name        = "${var.server_name}-sg"
   description = "Allow TLS inbound traffic"
 
   tags = {
-    Name        = "nginx-server"
+    Name        = "${var.server_name}"
     Environment = "dev"
     Owner       = "Rodrigo"
     Team        = "DevOps"
