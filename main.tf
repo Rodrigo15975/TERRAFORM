@@ -4,7 +4,7 @@ provider "aws" {
 }
 
 
-data "aws_ami" "amazon_linux" {
+data "aws_ami" "amazo_linux" {
   most_recent = true       # Selecciona la AMI más reciente que cumpla con los filtros
   owners      = ["amazon"] # Solo considera AMIs oficiales de Amazon
 
@@ -18,6 +18,13 @@ data "aws_ami" "amazon_linux" {
     values = ["hvm"] # Tipo compatible con t3.micro
   }
 
+  tags = {
+    Name        = "nginx-server"
+    Environment = "dev"
+    Owner       = "Rodrigo"
+    Team        = "DevOps"
+    Projects    = "Ecommerce"
+  }
 
 }
 
