@@ -79,7 +79,7 @@ resource "aws_instance" "nginx-server" {
 
   ## RESOURCES ASSOCIATE TAG ( asociar etiquetas mejores practicas)
   tags = {
-    Name        = var.server_name
+    Name        = "${var.server_name}"
     Environment = "dev"
     Owner       = "Rodrigo"
     Team        = "DevOps"
