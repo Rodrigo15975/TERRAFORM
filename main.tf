@@ -41,6 +41,7 @@ resource "aws_instance" "nginx-server" {
   ## RESOURCES ASSOCIATE KEY( asociar llave) con otra resource
   key_name = aws_key_pair.ssh-key-nginx-server.key_name
 
+  ## RESOURCES ASSOCIATE TAG ( asociar etiquetas mejores practicas)
   tags = {
     Name        = "nginx-server"
     Environment = "dev"
