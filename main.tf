@@ -1,3 +1,21 @@
+
+variable "SSH_KEY_FILE" {
+  description = "SSH Key"
+  default     = "ssh-key-nginx-server.pub"
+}
+
+variable "type_instace" {
+  description = "Type Instance"
+  default     = "t3.micro"
+
+}
+
+variable "Environment" {
+  description = "Environment"
+  default     = "dev"
+
+}
+
 provider "aws" {
   region = "us-east-1"
 
@@ -29,12 +47,11 @@ data "aws_ami" "amazo_linux" {
 }
 
 ### RESOURCE INSTANCE MAIN
-
 ### aws_instace es recurso de aws
 ### nginx-server es el identificador(o nombre)
 resource "aws_instance" "nginx-server" {
   ami           = data.aws_ami.amazo_linux.id
-  instance_type = "t3.micro"
+  instance_type = var.type_instace
 
   user_data = <<-EOF
               #!/bin/bash
@@ -68,7 +85,7 @@ resource "aws_instance" "nginx-server" {
 ### RESOURCE KEY PAIR
 resource "aws_key_pair" "ssh-key-nginx-server" {
   key_name   = "ssh-key-nginx-server"
-  public_key = file("ssh-key-nginx-server.pub")
+  public_key = file(var.SSH_KEY_FILE)
 
   ## RESOURCES ASSOCIATE TAG ( asociar etiquetas mejores practicas)
   tags = {
