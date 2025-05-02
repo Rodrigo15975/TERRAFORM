@@ -2,17 +2,19 @@
 variable "SSH_KEY_FILE" {
   description = "SSH Key"
   default     = "ssh-key-nginx-server.pub"
+  type        = string
 }
 
 variable "type_instace" {
   description = "Type Instance"
   default     = "t3.micro"
-
+  type        = string
 }
 
 variable "environment" {
   description = "Environment"
   default     = "dev"
+  type        = string
 
 }
 
