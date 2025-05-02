@@ -12,22 +12,13 @@ data "aws_ami" "amazon_linux" {
     name   = "name"
     values = ["al2023-ami-*-x86_64"] # Coincide con el nombre de AMIs de Amazon Linux 2023 para 64 bits
   }
-  ## RESOURCES ASSOCIATE TAG ( asociar etiquetas mejores practicas)
 
   filter {
     name   = "virtualization-type"
     values = ["hvm"] # Tipo compatible con t3.micro
   }
 
-  ## RESOURCES ASSOCIATE TAG ( asociar etiquetas mejores practicas)
-  tags = {
-    Name        = "nginx-server"
-    Environment = "dev"
-    Owner       = "Rodrigo"
-    Team        = "DevOps"
-    Projects    = "Ecommerce"
 
-  }
 }
 
 
