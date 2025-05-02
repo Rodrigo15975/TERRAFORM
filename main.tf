@@ -58,6 +58,16 @@ resource "aws_instance" "nginx-server" {
 resource "aws_key_pair" "ssh-key-nginx-server" {
   key_name   = "ssh-key-nginx-server"
   public_key = file("ssh-key-nginx-server.pub")
+
+  ## RESOURCES ASSOCIATE TAG ( asociar etiquetas mejores practicas)
+  tags = {
+    Name        = "nginx-server"
+    Environment = "dev"
+    Owner       = "Rodrigo"
+    Team        = "DevOps"
+    Projects    = "Ecommerce"
+
+  }
 }
 
 
