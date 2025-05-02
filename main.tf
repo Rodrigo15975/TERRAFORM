@@ -34,7 +34,7 @@ resource "aws_instance" "nginx-server" {
               EOF
 
 
-
+  ## RESOURCES ASSOCIATE SECURITY GROUP
   vpc_security_group_ids = [
     aws_security_group.nginx-server-sg.id
   ]
