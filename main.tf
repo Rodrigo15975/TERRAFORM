@@ -10,10 +10,16 @@ variable "type_instace" {
 
 }
 
-variable "Environment" {
+variable "environment" {
   description = "Environment"
   default     = "dev"
 
+}
+
+variable "server_name" {
+  type        = string
+  description = "Server name"
+  default     = "nginx-server"
 }
 
 provider "aws" {
@@ -37,8 +43,8 @@ data "aws_ami" "amazo_linux" {
   }
 
   tags = {
-    Name        = "nginx-server"
-    Environment = "dev"
+    Name        = var.server_name
+    Environment = var.environment
     Owner       = "Rodrigo"
     Team        = "DevOps"
     Projects    = "Ecommerce"
