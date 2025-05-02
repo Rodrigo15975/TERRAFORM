@@ -60,6 +60,8 @@ resource "aws_key_pair" "ssh-key-nginx-server" {
   public_key = file("ssh-key-nginx-server.pub")
 }
 
+
+### RESOURCE SECURITY GROUP
 resource "aws_security_group" "nginx-server-sg" {
   name        = "nginx-server-sg"
   description = "Allow TLS inbound traffic"
