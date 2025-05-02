@@ -54,6 +54,7 @@ resource "aws_instance" "nginx-server" {
 }
 
 
+### RESOURCE KEY PAIR
 resource "aws_key_pair" "ssh-key-nginx-server" {
   key_name   = "ssh-key-nginx-server"
   public_key = file("ssh-key-nginx-server.pub")
