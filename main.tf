@@ -114,7 +114,7 @@ resource "aws_security_group" "nginx-server-sg" {
 
   tags = {
     Name        = "${var.server_name}"
-    Environment = "dev"
+    Environment = "${var.environment}"
     Owner       = "Rodrigo"
     Team        = "DevOps"
     Projects    = "Ecommerce"
