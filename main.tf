@@ -38,7 +38,7 @@ resource "aws_instance" "nginx-server" {
   vpc_security_group_ids = [
     aws_security_group.nginx-server-sg.id
   ]
-
+  ## RESOURCES ASSOCIATE KEY( asociar llave) con otra resource
   key_name = aws_key_pair.ssh-key-nginx-server.key_name
 
   tags = {
