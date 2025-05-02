@@ -124,16 +124,17 @@ resource "aws_security_group" "nginx-server-sg" {
 }
 
 ### OUTPUTS
-# ip de la instancia
 output "server_public_ip" {
   description = "Public IP address of the EC2 instance"
-  value       = aws_instance.nginx-server.public_ip
+  # ip de la instancia
+  value = aws_instance.nginx-server.public_ip
 
 }
 
 ### OUPUT-DNS
 output "server_public_dns" {
   description = "Public DNS address of the EC2 instance"
-  value       = aws_instance.nginx-server.public_dns
+  # dns de la instancia
+  value = aws_instance.nginx-server.public_dns
 
 }
