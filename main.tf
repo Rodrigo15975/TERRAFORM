@@ -79,7 +79,7 @@ resource "aws_instance" "nginx-server" {
 
   ## RESOURCES ASSOCIATE TAG ( asociar etiquetas mejores practicas)
   tags = {
-    Name        = "nginx-server"
+    Name        = var.server_name
     Environment = "dev"
     Owner       = "Rodrigo"
     Team        = "DevOps"
@@ -92,12 +92,12 @@ resource "aws_instance" "nginx-server" {
 
 ### RESOURCE KEY PAIR
 resource "aws_key_pair" "ssh-key-nginx-server" {
-  key_name   = "ssh-key-nginx-server"
+  key_name   = "ssh-key-${var.server_name}"
   public_key = file(var.SSH_KEY_FILE)
 
   ## RESOURCES ASSOCIATE TAG ( asociar etiquetas mejores practicas)
   tags = {
-    Name        = "nginx-server"
+    Name        = "${var.server_name}"
     Environment = "dev"
     Owner       = "Rodrigo"
     Team        = "DevOps"
