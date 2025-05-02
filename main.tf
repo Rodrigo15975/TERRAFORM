@@ -4,18 +4,19 @@ provider "aws" {
 }
 
 
-data "aws_ami" "amazo_linux" {
-  most_recent = true
-  owners      = ["amazon"]
+data "aws_ami" "amazon_linux" {
+  most_recent = true       # Selecciona la AMI más reciente que cumpla con los filtros
+  owners      = ["amazon"] # Solo considera AMIs oficiales de Amazon
 
   filter {
     name   = "name"
-    values = ["al2023-ami-*-x86_64"]
+    values = ["al2023-ami-*-x86_64"] # Coincide con el nombre de AMIs de Amazon Linux 2023 para 64 bits
   }
+
 
   filter {
     name   = "virtualization-type"
-    values = ["hvm"]
+    values = ["hvm"] # Tipo compatible con t3.micro
   }
 }
 
