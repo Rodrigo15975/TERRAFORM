@@ -28,7 +28,10 @@ data "aws_ami" "amazo_linux" {
 
 }
 
+### RESOURCE INSTANCE MAIN
 
+### aws_instace es recurso de aws
+### nginx-server es el identificador(o nombre)
 resource "aws_instance" "nginx-server" {
   ami           = data.aws_ami.amazo_linux.id
   instance_type = "t3.micro"
